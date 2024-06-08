@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
@@ -17,9 +20,13 @@ public class Main
 
     public static void main(String[] args)
     {
-        final String action;
-        final int numberOfRepetition;
-        final Dictionary dictionary;
+        final String                                action;
+        final int                                   numberCommandLine;
+        final Dictionary                            dictionary;
+        final List<String>                          words;
+        final String[]                              wordsArray;
+        final BiFunction<String, Integer, String>   repeatWords;
+        final Wordable                              wordy;
 
         if(args.length < 2)
         {
@@ -27,11 +34,13 @@ public class Main
             return;
         }
 
-        action = args[0];
-        numberOfRepetition = Integer.parseInt(args[1]);
-        dictionary = new Dictionary();
+        action              = args[0];
+        numberCommandLine   = Integer.parseInt(args[1]);
+        dictionary          = new Dictionary();
+        words               = dictionary.getWords();
+        wordsArray          = words.toArray(new String[0]);
 
-        BiFunction<String, Integer, String> consumer = (word, repetitions) ->{
+        repeatWords = (word, repetitions) ->{
             final StringBuilder str;
             str = new StringBuilder();
 
@@ -42,7 +51,7 @@ public class Main
             return str.toString();
         };
 
-        Wordable wordyConcat = (word, number) ->
+        wordy = (word, number) ->
         {
             if(CONCAT_WORDS.equalsIgnoreCase(word))
             {
@@ -55,65 +64,59 @@ public class Main
                 }
                 return result.toString();
             }
-            return null;
-        };
-
-        Wordable wordyRepeat = (word, number) ->
-        {
-            if(REPEAT_WORDS.equalsIgnoreCase(word))
+            else if(REPEAT_WORDS.equalsIgnoreCase(word))
             {
                 final StringBuilder result;
                 result = new StringBuilder();
 
                 for(final String w : dictionary.getWords())
                 {
-                    result.append(consumer.apply(w, number));
+                    result.append(repeatWords.apply(w, number));
                 }
                 return result.toString();
             }
-            return null;
-        };
-
-        Wordable wordyNth = (word, number) ->
-        {
-            if(WORD_IN_INDEX.equalsIgnoreCase(word))
+            else if(WORD_IN_INDEX.equalsIgnoreCase(word))
             {
                 return dictionary.getWordByIndex(number);
             }
-            return null;
-        };
-
-        Wordable wordyReverse = (word, number) ->
+            else if(REVERSE_WORDS.equalsIgnoreCase(word))
         {
-            if(REVERSE_WORDS.equalsIgnoreCase(word))
+            final StringBuilder str;
+            StringBuilder reverseWord;
+
+            str = new StringBuilder();
+
+            for(final String w : dictionary.getWords())
             {
-                final StringBuilder str;
-                StringBuilder reverseWord;
-
-                str = new StringBuilder();
-
-                for(final String w : dictionary.getWords())
-                {
-                    reverseWord = new StringBuilder(w);
-                    str.append(reverseWord.reverse());
-                }
-                return str.toString();
+                reverseWord = new StringBuilder(w);
+                str.append(reverseWord.reverse());
             }
+            return str.toString();
+        }
             return null;
         };
 
-        String result = dictionary.getWords(CONCAT_WORDS, 0, wordyConcat);
+        System.out.println("e)Wordy result: ");
+        String result = dictionary.getWords(action, numberCommandLine, wordy);
         System.out.println(result);
 
-        String result2 = dictionary.getWords(REPEAT_WORDS, 2, wordyRepeat);
-        System.out.println(result2);
+        System.out.println("\ne)List of words: ");
+        words.forEach(System.out::println);
 
-        String result3 = dictionary.getWords(WORD_IN_INDEX, 7, wordyNth);
-        System.out.println(result3);
+        System.out.println("\nf)Reverse each word and print it.");
+        words.forEach( str -> System.out.println(Dictionary.reverseString(str)));
 
-        String result4 = dictionary.getWords(REVERSE_WORDS, 0, wordyReverse);
-        System.out.println(result4);
+        Arrays.sort(wordsArray, Dictionary::alphabeticalOrder);
+        System.out.println("\nSorted words: " + Arrays.toString(wordsArray));
 
-
+        System.out.println("\nPrint words longer than five characters");
+        words.stream().filter(Dictionary::isLengthAboveFive).forEach(System.out::println);
+        System.out.println("\nPrint words longer than five characters. Option 2");
+        words.forEach( word -> {
+            if(Dictionary.isLengthAboveFive(word))
+            {
+                System.out.println(word);
+            }
+        });
     }
 }
