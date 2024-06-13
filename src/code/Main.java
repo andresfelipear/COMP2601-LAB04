@@ -15,6 +15,9 @@ public class Main
     private static final String REPEAT_WORDS = "repeat";
     private static final String WORD_IN_INDEX = "nth";
     private static final String REVERSE_WORDS = "reverse";
+    private static final int SIZE_VALID_INPUT = 2;
+    private static final int VERB = 0;
+    private static final int NUMBER_OF_REPETITIONS = 1;
 
     public static void main(String[] args)
     {
@@ -26,14 +29,14 @@ public class Main
         final BiFunction<String, Integer, String>   repeatWords;
         final Wordable                              wordy;
 
-        if(args.length < 2)
+        if(args.length < SIZE_VALID_INPUT)
         {
             System.out.println("Please provide two commandline argument: (String, int)");
             return;
         }
 
-        action              = args[0];
-        numberCommandLine   = Integer.parseInt(args[1]);
+        action              = args[VERB];
+        numberCommandLine   = Integer.parseInt(args[NUMBER_OF_REPETITIONS]);
         dictionary          = new Dictionary();
         words               = dictionary.getWords();
         wordsArray          = words.toArray(new String[0]);
