@@ -5,7 +5,7 @@ import java.util.function.BiFunction;
 /**
  * Main
  *
- * @author Andres Arevalo & Raz
+ * @author Andres Arevalo, Marius Guerra & Raaz.
  * @version 1.0
  */
 public class Main

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e497dc7-acb4-4650-a2a5-0b81c78847e9" name="Changes" comment="created main classes. finished a, b, c and d.">
+    <list default="true" id="2e497dc7-acb4-4650-a2a5-0b81c78847e9" name="Changes" comment="removed unused imports">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Dictionary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;andresfelipear&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/andresfelipear/COMP2601-LAB04.git&quot;,
+    &quot;accountId&quot;: &quot;06be3668-58d4-4cc7-a1ce-a1ad00a6f834&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -91,7 +102,9 @@
       <updated>1717737832401</updated>
       <workItem from="1717738193284" duration="54000" />
       <workItem from="1717738254423" duration="11705000" />
-      <workItem from="1717877138397" duration="5827000" />
+      <workItem from="1717877138397" duration="7575000" />
+      <workItem from="1718307012064" duration="619000" />
+      <workItem from="1718313523999" duration="331000" />
     </task>
     <task id="LOCAL-00001" summary="created main classes. finished a, b, c and d.">
       <option name="closed" value="true" />
@@ -101,7 +114,31 @@
       <option name="project" value="LOCAL" />
       <updated>1717750061937</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="created main classes. finished a, b, c and d.">
+      <option name="closed" value="true" />
+      <created>1717883967006</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717883967006</updated>
+    </task>
+    <task id="LOCAL-00003" summary="created main classes. finished a, b, c and d.">
+      <option name="closed" value="true" />
+      <created>1717884018064</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1717884018064</updated>
+    </task>
+    <task id="LOCAL-00004" summary="removed unused imports">
+      <option name="closed" value="true" />
+      <created>1717884276525</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717884276525</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +146,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created main classes. finished a, b, c and d." />
-    <option name="LAST_COMMIT_MESSAGE" value="created main classes. finished a, b, c and d." />
+    <MESSAGE value="removed unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unused imports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
